@@ -1,3 +1,6 @@
+import React from 'react';
+import { shallow } from 'zustand/shallow';
+
 import { useTasksStore } from '../../store/useTasks';
 
 import {
@@ -15,7 +18,10 @@ interface ITaskCardProps {
 }
 
 export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
-  const setDraggedTask = useTasksStore(store => store.setDraggedTask)
+  const [setDraggedTask, removeTask] = useTasksStore(store =>
+    [store.setDraggedTask, store.removeTask],
+    shallow
+  )
 
   const convertTimestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
@@ -39,7 +45,7 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
           <Button>
             <i className='bi bi-pencil-square' />
           </Button>
-          <Button>
+          <Button onClick={() => removeTask(id)}>
             <i className='bi bi-trash-fill' />
           </Button>
           <Button>

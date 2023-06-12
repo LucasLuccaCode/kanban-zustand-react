@@ -8,6 +8,7 @@ interface IState {
 
 interface IMutations {
   addTask(task: ITask): void
+  removeTask(taskId: number): void
   setDraggedTask(taskId: number): void
   moveTask(state: StateTypes): void
 }
@@ -24,6 +25,13 @@ export const useTasksStore = create<IState & IMutations>()(
       set(store => ({
         tasks: [...store.tasks, task]
       }))
+    },
+    removeTask(taskId) {
+      const tasks = get().tasks.slice()
+      const taskIndex = tasks.findIndex(task => task.id === taskId)
+      tasks.splice(taskIndex, 1)
+
+      set({ tasks })
     },
     setDraggedTask(taskId) {
       set({ draggedTask: taskId })
