@@ -1,18 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { App } from './App.tsx'
 
-import { GlobalStyle } from './styles/global.ts'
-import { ThemeProvider } from 'styled-components'
-import dark from './styles/theme/dark.ts'
+import { RouterProvider } from 'react-router-dom'
 
-const theme = dark
+import { router } from './routes/index.tsx'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-      <GlobalStyle />
-    </ThemeProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
