@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const ButtonCss = css`
   cursor: pointer !important;
   font-size: 0.7rem;
+  text-align: center;
   font-weight: bold;
   padding: 0.2rem 0.5rem;
   border-radius: 100px;

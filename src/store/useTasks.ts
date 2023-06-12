@@ -7,6 +7,7 @@ interface IState {
 }
 
 interface IMutations {
+  addTask(task: ITask): void
   setDraggedTask(taskId: number): void
   moveTask(state: StateTypes): void
 }
@@ -19,6 +20,11 @@ export const useTasksStore = create<IState & IMutations>()(
       state: 'PLANED'
     }],
     draggedTask: null,
+    addTask(task) {
+      set(store => ({
+        tasks: [...store.tasks, task]
+      }))
+    },
     setDraggedTask(taskId) {
       set({ draggedTask: taskId })
     },
@@ -29,6 +35,6 @@ export const useTasksStore = create<IState & IMutations>()(
       tasks[taskIndex].state = state
 
       set({ tasks })
-    },
+    }
   })
 )
