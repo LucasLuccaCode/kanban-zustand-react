@@ -5,13 +5,13 @@ export const ColumnStyled = styled.li`
   flex-direction: column;
   height: 100%;
   padding-bottom: .5rem;
-  border: 1px solid rgba(255, 255, 255, .1);
+  border: 2px solid rgba(255, 255, 255, .03);
   border-radius: ${props => props.theme.borderRadius.large};
-  /* background: rgba(255, 255, 255, .05); */
+  /* background: rgba(255, 255, 255, .02); */
   overflow: hidden;
 
   &.drop {
-    border: 2px dashed ${props => props.theme.colors.bg.details};
+    border: 2px dashed rgba(87, 104, 239, .8);
   }
 `
 
@@ -24,7 +24,7 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.h3`
   font-size: .8rem;
-  color: ${props => props.theme.colors.text.placeholder};
+  color: ${props => props.theme.colors.text.title};
 `
 
 export const Amount = styled.div`
@@ -34,4 +34,26 @@ export const Amount = styled.div`
   border-radius: 100%;
   color: ${props => props.theme.colors.bg.details};
   background: rgba(87, 104, 239, .2);
+`
+
+export const DropZone = styled.ul`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: .5rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: .2rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.colors.bg.details};
+    border-radius: 50px;
+  }
 `

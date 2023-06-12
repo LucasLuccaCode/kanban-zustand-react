@@ -1,3 +1,5 @@
+import { useTasksStore } from '../../store/useTasks';
+
 import {
   Actions,
   Button,
@@ -13,14 +15,21 @@ interface ITaskCardProps {
 }
 
 export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
+  const setDraggedTask = useTasksStore(store => store.setDraggedTask)
+
   const convertTimestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
     const formattedDate = date.toLocaleDateString('pt-BR')
     return formattedDate
   }
 
+  const handleDragStart = () => setDraggedTask(id)
+
   return (
-    <TaskCardStyled>
+    <TaskCardStyled
+      draggable
+      onDragStart={handleDragStart}
+    >
       <Title>{title}</Title>
 
       <Footer>

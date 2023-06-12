@@ -4,14 +4,19 @@ export const ButtonCss = css`
   cursor: pointer !important;
   font-size: 0.7rem;
   font-weight: bold;
-  padding: 0.3rem 0.5rem;
-  border-radius: ${(props) => props.theme.borderRadius.large};
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
   color: ${props => props.theme.colors.bg.details};
   background: rgba(87, 104, 239, .2);
   transition: background 0.2s ease !important;
 
+  & {
+    border: 2px solid transparent !important;
+  }
+
   &:hover {
     background: transparent;
+    border-color: rgba(87, 104, 239, .4) !important;
     color: ${(props) => props.theme.colors.bg.details};
   }
 
