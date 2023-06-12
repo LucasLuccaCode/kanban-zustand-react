@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 :root {
@@ -28,5 +28,10 @@ html,
   height: 100vh;
   font-size: 18px;
   background-color: ${props => props.theme.colors.bg.primary};
+}
+
+button {
+  cursor: pointer !important;
+  all: unset;
 }
 `
