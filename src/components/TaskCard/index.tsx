@@ -23,6 +23,11 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
     shallow
   )
 
+  const [fixedTasks, toggleFixedTask] = useTasksStore(store =>
+    [store.fixedTasks, store.toggleFixedTask],
+    shallow
+  )
+
   const convertTimestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
     const formattedDate = date.toLocaleDateString('pt-BR')
@@ -31,8 +36,11 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
 
   const handleDragStart = () => setDraggedTask(id)
 
+  const isFixedTask = fixedTasks.includes(id)
+
   return (
     <TaskCardStyled
+      className={isFixedTask ? 'fixed' : ''}
       draggable
       onDragStart={handleDragStart}
     >
@@ -48,7 +56,7 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
           <Button onClick={() => removeTask(id)}>
             <i className='bi bi-trash-fill' />
           </Button>
-          <Button>
+          <Button className={isFixedTask ? 'fixed' : ''} onClick={() => toggleFixedTask(id)}>
             <i className='bi bi-pin-fill' />
           </Button>
 

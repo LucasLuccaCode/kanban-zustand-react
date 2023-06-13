@@ -6,6 +6,10 @@ export const TaskCardStyled = styled.li`
   background: rgba(255, 255, 255, 0.05);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
+  &.fixed {
+    order: -1;
+  }
 `
 
 export const Title = styled.h3`
@@ -50,6 +54,10 @@ export const Button = styled.button`
     i {
       color: ${(props) => props.theme.colors.text.title};
     }
+  }
+
+  &.fixed {
+    background: rgba(87, 104, 239, .2);
   }
 
   i {

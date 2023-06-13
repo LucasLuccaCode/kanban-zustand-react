@@ -1,14 +1,17 @@
 import { create } from 'zustand';
 import { ITask, StateTypes } from '../types/task';
+import { produce } from 'immer';
 
 interface IState {
   tasks: ITask[]
+  fixedTasks: number[]
   draggedTask: number | null
 }
 
 interface IMutations {
   addTask(task: ITask): void
   removeTask(taskId: number): void
+  toggleFixedTask(taskId: number): void
   setDraggedTask(taskId: number): void
   moveTask(state: StateTypes): void
 }
@@ -20,6 +23,7 @@ export const useTasksStore = create<IState & IMutations>()(
       title: 'Lorem ipsum dolor...',
       state: 'PLANED'
     }],
+    fixedTasks: [],
     draggedTask: null,
     addTask(task) {
       set(store => ({
@@ -32,6 +36,18 @@ export const useTasksStore = create<IState & IMutations>()(
       tasks.splice(taskIndex, 1)
 
       set({ tasks })
+    },
+    toggleFixedTask(taskId) {
+      const fixedTasks = get().fixedTasks.slice()
+      const taskIndex = fixedTasks.indexOf(taskId)
+
+      if (taskIndex === -1) {
+        set({ fixedTasks: [...fixedTasks, taskId] })
+        return
+      }
+
+      fixedTasks.splice(taskIndex, 1)
+      set({ fixedTasks })
     },
     setDraggedTask(taskId) {
       set({ draggedTask: taskId })
