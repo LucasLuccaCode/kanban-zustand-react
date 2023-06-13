@@ -8,8 +8,9 @@ export const SearchFormStyled = styled(Form)`
   width: 50%;
   padding: 0 0.3rem;
   border-radius: 100px;
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   background: ${(props) => props.theme.colors.bg.secondary};
+  transition: all .3s ease;
   overflow: hidden;
 
   &:focus-within {

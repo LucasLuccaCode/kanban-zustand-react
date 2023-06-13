@@ -1,6 +1,7 @@
 import { DragEvent, useState } from 'react';
-import { StateTypes } from '../../types/task';
 import { shallow } from 'zustand/shallow';
+
+import { StateTypes } from '../../types/task';
 
 import {
   Amount,
@@ -21,8 +22,12 @@ interface IColumnProps {
 export const Column: React.FC<IColumnProps> = ({ state }) => {
   const [drop, setDrop] = useState(false)
 
+  const filter = useTasksStore(store => store.filter)
   const [tasks, moveTask] = useTasksStore(store =>
-    [store.tasks.filter(task => task.state === state), store.moveTask],
+    [store.tasks.filter(task =>
+      task.state === state && task.title.toLowerCase().includes(filter.toLowerCase())),
+    store.moveTask
+    ],
     shallow
   )
 

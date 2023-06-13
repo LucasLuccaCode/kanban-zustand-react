@@ -4,12 +4,14 @@ import { persist } from 'zustand/middleware';
 
 interface IState {
   tasks: ITask[]
+  filter: string
   fixedTasks: number[]
   draggedTask: number | null
 }
 
 interface IMutations {
   addTask(task: ITask): void
+  setFilter(filter: string): void
   removeTask(taskId: number): void
   toggleFixedTask(taskId: number): void
   setDraggedTask(taskId: number): void
@@ -24,6 +26,7 @@ export const useTasksStore = create<IState & IMutations>()(
         title: 'Lorem ipsum dolor...',
         state: 'PLANED'
       }],
+      filter: '',
       fixedTasks: [],
       draggedTask: null,
       addTask(task) {
@@ -37,6 +40,9 @@ export const useTasksStore = create<IState & IMutations>()(
         tasks.splice(taskIndex, 1)
 
         set({ tasks })
+      },
+      setFilter(filter) {
+        set({ filter })
       },
       toggleFixedTask(taskId) {
         const fixedTasks = get().fixedTasks.slice()
