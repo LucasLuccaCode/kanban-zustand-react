@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { ITask, StateTypes } from '../types/task';
-import { produce } from 'immer';
+import { persist } from 'zustand/middleware';
 
 interface IState {
   tasks: ITask[]
@@ -17,48 +17,51 @@ interface IMutations {
 }
 
 export const useTasksStore = create<IState & IMutations>()(
-  (set, get) => ({
-    tasks: [{
-      id: Date.now(),
-      title: 'Lorem ipsum dolor...',
-      state: 'PLANED'
-    }],
-    fixedTasks: [],
-    draggedTask: null,
-    addTask(task) {
-      set(store => ({
-        tasks: [...store.tasks, task]
-      }))
-    },
-    removeTask(taskId) {
-      const tasks = get().tasks.slice()
-      const taskIndex = tasks.findIndex(task => task.id === taskId)
-      tasks.splice(taskIndex, 1)
+  persist(
+    (set, get) => ({
+      tasks: [{
+        id: Date.now(),
+        title: 'Lorem ipsum dolor...',
+        state: 'PLANED'
+      }],
+      fixedTasks: [],
+      draggedTask: null,
+      addTask(task) {
+        set(store => ({
+          tasks: [...store.tasks, task]
+        }))
+      },
+      removeTask(taskId) {
+        const tasks = get().tasks.slice()
+        const taskIndex = tasks.findIndex(task => task.id === taskId)
+        tasks.splice(taskIndex, 1)
 
-      set({ tasks })
-    },
-    toggleFixedTask(taskId) {
-      const fixedTasks = get().fixedTasks.slice()
-      const taskIndex = fixedTasks.indexOf(taskId)
+        set({ tasks })
+      },
+      toggleFixedTask(taskId) {
+        const fixedTasks = get().fixedTasks.slice()
+        const taskIndex = fixedTasks.indexOf(taskId)
 
-      if (taskIndex === -1) {
-        set({ fixedTasks: [...fixedTasks, taskId] })
-        return
+        if (taskIndex === -1) {
+          set({ fixedTasks: [...fixedTasks, taskId] })
+          return
+        }
+
+        fixedTasks.splice(taskIndex, 1)
+        set({ fixedTasks })
+      },
+      setDraggedTask(taskId) {
+        set({ draggedTask: taskId })
+      },
+      moveTask(state) {
+        const tasks = get().tasks.slice()
+        const taskId = get().draggedTask
+        const taskIndex = tasks.findIndex(task => task.id === taskId)
+        tasks[taskIndex].state = state
+
+        set({ tasks })
       }
-
-      fixedTasks.splice(taskIndex, 1)
-      set({ fixedTasks })
-    },
-    setDraggedTask(taskId) {
-      set({ draggedTask: taskId })
-    },
-    moveTask(state) {
-      const tasks = get().tasks.slice()
-      const taskId = get().draggedTask
-      const taskIndex = tasks.findIndex(task => task.id === taskId)
-      tasks[taskIndex].state = state
-
-      set({ tasks })
-    }
+    }), {
+    name: 'mr-kanban'
   })
 )

@@ -45,7 +45,7 @@ export const Button = styled.button`
   display: flex;
   all: unset;
   border-radius: 0.3rem;
-  padding: 0.3rem 0.4rem;
+  padding: 0.2rem 0.4rem;
   /* background: red; */
 
   &:hover {

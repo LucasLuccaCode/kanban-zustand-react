@@ -6,7 +6,7 @@ interface IDialogStore {
 }
 
 export const useDialogStore = create<IDialogStore>()((set) => ({
-  isOpen: true,
+  isOpen: false,
   toggleDialog() {
     set((store) => ({
       isOpen: !store.isOpen,
