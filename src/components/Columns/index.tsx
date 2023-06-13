@@ -5,9 +5,9 @@ import { Column } from '../Column'
 export const Columns: React.FC = () => {
   return (
     <ColumnsStyled>
-      <Column state='PLANED' />
-      <Column state='PROGRESS' />
-      <Column state='COMPLETED' />
+      <Column state='PLANNED' />
+      <Column state='DOING' />
+      <Column state='DONE' />
     </ColumnsStyled>
   )
 }

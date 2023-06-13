@@ -9,12 +9,14 @@ import {
   CreatedAt,
   Footer,
   TaskCardStyled,
-  Title
 } from './styles';
+
+import { StateTypes } from '../../types/task';
 
 interface ITaskCardProps {
   id: number
   title: string
+  state: StateTypes
 }
 
 export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
@@ -44,7 +46,7 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
       draggable
       onDragStart={handleDragStart}
     >
-      <Title>{title}</Title>
+      <h3>{title}</h3>
 
       <Footer>
         <CreatedAt>{convertTimestampToDate(id)}</CreatedAt>
@@ -53,10 +55,15 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
           <Button>
             <i className='bi bi-pencil-square' />
           </Button>
+
           <Button onClick={() => removeTask(id)}>
             <i className='bi bi-trash-fill' />
           </Button>
-          <Button className={isFixedTask ? 'fixed' : ''} onClick={() => toggleFixedTask(id)}>
+
+          <Button
+            className={isFixedTask ? 'fixed' : ''}
+            onClick={() => toggleFixedTask(id)}
+          >
             <i className='bi bi-pin-fill' />
           </Button>
 

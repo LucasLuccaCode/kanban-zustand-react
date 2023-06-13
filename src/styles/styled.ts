@@ -11,11 +11,25 @@ declare module 'styled-components' {
       title: string
     }
 
+    opacity: {
+      color: string,
+      title: string,
+      bg: string,
+      boxShadow: string,
+    },
+
     boxShadow: {
-      card: string
-    }
+      card: string,
+    },
 
     colors: {
+
+      state: {
+        planned: string,
+        doing: string,
+        done: string,
+      },
+
       bg: {
         primary: string
         secondary: string

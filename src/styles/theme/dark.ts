@@ -8,11 +8,25 @@ export const dark = {
     title: '1.2rem',
   },
 
+  opacity: {
+    color: '.6',
+    title: '1',
+    bg: '.3',
+    boxShadow: '.6'
+  },
+
   boxShadow: {
     card: '0 0 0px 1.5px rgba(0,0, 0, .08)',
   },
 
   colors: {
+
+    state: {
+      planned: '255, 152, 0',
+      doing: '76, 175, 80',
+      done: '158, 158, 158',
+    },
+
     bg: {
       primary: '#161616',
       secondary: '#1f1f1f',

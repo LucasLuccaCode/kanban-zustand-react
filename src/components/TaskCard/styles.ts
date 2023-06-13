@@ -1,20 +1,24 @@
 import { styled } from 'styled-components'
 
 export const TaskCardStyled = styled.li`
-  padding: 1rem;
   border-radius: ${(props) => props.theme.borderRadius.medium};
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  padding: 1rem;
+  background: rgba(var(--state-color), var(--bg-opacity));
+  box-shadow: 0 1px 2px 1px rgba(var(--state-color), var(--box-shadow-opacity));
 
+  i, span {
+    color: rgba(var(--state-color), var(--color-opacity));
+  }
+
+  h3 {
+    font-size: .9rem;
+    color: rgba(var(--state-color), var(--title-opacity));
+  }
+  
+  
   &.fixed {
     order: -1;
   }
-`
-
-export const Title = styled.h3`
-  font-size: 1rem;
-  color: ${(props) => props.theme.colors.text.title};
 `
 
 export const Footer = styled.div`
@@ -29,8 +33,7 @@ export const Footer = styled.div`
 export const CreatedAt = styled.span`
   flex: 1;
   margin-right: auto;
-  font-size: 0.9rem;
-  color: ${(props) => props.theme.colors.text.placeholder};
+  font-size: 0.7rem;
 `
 
 export const Actions = styled.div`
@@ -45,23 +48,25 @@ export const Button = styled.button`
   display: flex;
   all: unset;
   border-radius: 0.3rem;
-  padding: 0.2rem 0.4rem;
-  /* background: red; */
+  padding: 0rem 0.3rem;
 
   &:hover {
-    background: ${(props) => props.theme.colors.bg.secondary};
+    background: rgba(var(--state-color), var(--bg-opacity));
 
     i {
-      color: ${(props) => props.theme.colors.text.title};
+      color: rgba(var(--state-color), var(--title-opacity));
     }
   }
 
   &.fixed {
-    background: rgba(87, 104, 239, .2);
+    background: rgba(var(--state-color), var(--bg-opacity));
+      
+    i {
+      color: rgba(var(--state-color), var(--title-opacity)); 
+    }
   }
 
   i {
-    font-size: .9rem;
-    color: #aaaab0;
+    font-size: .8rem;
   }
 `

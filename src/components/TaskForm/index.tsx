@@ -19,7 +19,7 @@ import { Button } from '../Button'
 
 export const TaskForm: React.FC = () => {
   const [title, setTitle] = useState('')
-  const [state, setState] = useState<StateTypes>('PLANED')
+  const [state, setState] = useState<StateTypes>('PLANNED')
 
   const addTask = useTasksStore((store) => store.addTask)
   const toggleDialog = useDialogStore((store) => store.toggleDialog)
@@ -47,9 +47,9 @@ export const TaskForm: React.FC = () => {
           value={state}
           onChange={(e) => setState(e.target.value as StateTypes)}
         >
-          <option value='PLANED'>Planejada</option>
-          <option value='PROGRESS'>Em progresso</option>
-          <option value='COMPLETED'>Completada</option>
+          <option value='PLANNED'>Planejada</option>
+          <option value='DOING'>Fazendo</option>
+          <option value='DONE'>Completa</option>
         </Select>
         <TextArea
           name='title'

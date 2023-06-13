@@ -1,4 +1,4 @@
-import { DragEvent, useState } from 'react';
+import { CSSProperties, DragEvent, useState } from 'react';
 import { shallow } from 'zustand/shallow';
 
 import { StateTypes } from '../../types/task';
@@ -14,6 +14,7 @@ import {
 import { useTasksStore } from '../../store/useTasks';
 
 import { TaskCard } from '../TaskCard';
+import { useStateColor } from '../../hooks/useStateColor';
 
 interface IColumnProps {
   state: StateTypes;
@@ -49,8 +50,19 @@ export const Column: React.FC<IColumnProps> = ({ state }) => {
     setDrop(false)
   }
 
+  const stateColor = useStateColor(state)
+
+  const styleWithStateColor = { '--state-color': stateColor } as CSSProperties
+
+  const stateToPortuguese = {
+    'PLANNED': 'Planejadas',
+    'DOING': 'Fazendo',
+    'DONE': 'Concluídas'
+  }
+
   return (
     <ColumnStyled
+      style={styleWithStateColor}
       className={drop ? 'drop' : ''}
       onDragEnter={handleDragEnter}
       onDragOver={handleDragOver}
@@ -58,13 +70,13 @@ export const Column: React.FC<IColumnProps> = ({ state }) => {
       onDrop={handleDrop}
     >
       <TitleWrapper>
-        <Title>{state}</Title>
+        <Title>{stateToPortuguese[state]}</Title>
         <Amount>{tasks.length}</Amount>
       </TitleWrapper>
 
       <DropZone>
         {tasks?.map((task) => (
-          <TaskCard key={task.id} id={task.id} title={task.title} />
+          <TaskCard key={task.id} id={task.id} title={task.title} state={task.state} />
         ))}
       </DropZone>
     </ColumnStyled>

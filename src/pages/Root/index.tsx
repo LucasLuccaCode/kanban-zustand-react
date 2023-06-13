@@ -6,6 +6,7 @@ import { RootStyled } from './styles'
 
 import { Header } from './Header'
 import { Main } from './Main'
+import { Aside } from './Aside'
 import { Dialog } from '../../components/Dialog'
 
 const theme = dark
@@ -17,6 +18,8 @@ const Root: React.FC = () => {
         <Header />
 
         <Main />
+
+        <Aside />
 
         <Dialog />
       </RootStyled>

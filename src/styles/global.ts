@@ -2,6 +2,15 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 :root {
+  --planned-state-color: ${props => props.theme.colors.state.planned};
+  --doing-state-color: ${props => props.theme.colors.state.doing};
+  --done-state-color: ${props => props.theme.colors.state.done};
+
+  --color-opacity: ${props => props.theme.opacity.color};
+  --title-opacity: ${props => props.theme.opacity.title};
+  --bg-opacity: ${props => props.theme.opacity.bg};
+  --box-shadow-opacity: ${props => props.theme.opacity.boxShadow};
+  
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
 
@@ -33,5 +42,14 @@ html,
 button {
   cursor: pointer !important;
   all: unset;
+  transition: all .3s ease;
+}
+
+button:active {
+  transform: scale(.95)
+}
+
+li {
+  list-style: none;
 }
 `

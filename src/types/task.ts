@@ -1,4 +1,4 @@
-export type StateTypes = 'PLANED' | 'PROGRESS' | 'COMPLETED'
+export type StateTypes = 'PLANNED' | 'DOING' | 'DONE'
 
 export interface ITask {
   id: number
