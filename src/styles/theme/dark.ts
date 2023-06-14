@@ -11,8 +11,8 @@ export const dark = {
   opacity: {
     color: '.6',
     title: '1',
-    bg: '.3',
-    boxShadow: '.6'
+    bg: '.4',
+    boxShadow: '.8'
   },
 
   boxShadow: {
@@ -22,10 +22,11 @@ export const dark = {
   colors: {
 
     state: {
-      planned: '255, 152, 0',
-      doing: '76, 175, 80',
-      done: '158, 158, 158',
+      planned: '236, 241, 244',
+      doing: '75, 237, 158',
+      done: '75, 77, 237',
       all: '87, 104, 239',
+      delete: '237, 75, 158'
     },
 
     bg: {

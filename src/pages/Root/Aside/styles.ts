@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const AsideStyled = styled.div`
+export const AsideStyled = styled.aside`
   grid-area: aside;
   display: flex;
   flex-direction: column;

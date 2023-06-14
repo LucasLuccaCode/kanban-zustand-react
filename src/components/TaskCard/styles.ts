@@ -2,7 +2,6 @@ import { styled } from 'styled-components'
 
 export const TaskCardStyled = styled.li`
   border-radius: ${(props) => props.theme.borderRadius.medium};
-  padding: 1rem;
   background: rgba(var(--state-color), var(--bg-opacity));
   box-shadow: 0 1px 2px 1px rgba(var(--state-color), var(--box-shadow-opacity));
 
@@ -11,6 +10,7 @@ export const TaskCardStyled = styled.li`
   }
 
   h3 {
+    padding: .5rem;
     word-wrap: break-word;
     font-size: .9rem;
     color: rgba(var(--state-color), var(--title-opacity));
@@ -23,12 +23,13 @@ export const TaskCardStyled = styled.li`
 `
 
 export const Footer = styled.div`
-  margin-top: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.2rem;
+  padding: .3rem .5rem;
+  /* border-top: 2px solid rgba(var(--state-color), .2); */
 `
 
 export const CreatedAt = styled.span`

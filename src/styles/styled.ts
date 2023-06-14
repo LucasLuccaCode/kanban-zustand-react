@@ -29,6 +29,7 @@ declare module 'styled-components' {
         doing: string,
         done: string,
         all: string,
+        delete: string,
       },
 
       bg: {

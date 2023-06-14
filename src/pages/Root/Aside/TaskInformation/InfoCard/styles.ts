@@ -6,8 +6,9 @@ export const InfoCardStyled = styled.li`
   gap: .2rem;
   padding: .5rem;
   border-radius: .3rem;
-  color: rgba(var(--state-color), var(--color-opacity));
+  color: rgba(var(--state-color), var(--title-opacity));
   background: rgba(var(--state-color), var(--bg-opacity));
+  box-shadow: 0 1px 2px 0px rgba(var(--state-color), var(--box-shadow-opacity));
   
   p {
     text-align: center;
