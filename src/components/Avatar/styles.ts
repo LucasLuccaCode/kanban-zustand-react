@@ -30,7 +30,7 @@ export const AvatarStyled = styled.div<AvatarStyledProps>`
         `}
 
     span {
-      font-size: 0.7rem;
+      font-size: 100%;
       font-weight: bold;
       color: ${theme.colors.text.title};
       text-transform: uppercase;

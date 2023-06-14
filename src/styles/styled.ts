@@ -28,6 +28,7 @@ declare module 'styled-components' {
         planned: string,
         doing: string,
         done: string,
+        all: string,
       },
 
       bg: {

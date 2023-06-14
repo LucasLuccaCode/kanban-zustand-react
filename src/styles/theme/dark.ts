@@ -25,6 +25,7 @@ export const dark = {
       planned: '255, 152, 0',
       doing: '76, 175, 80',
       done: '158, 158, 158',
+      all: '87, 104, 239',
     },
 
     bg: {

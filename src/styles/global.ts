@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 :root {
+  --all-state-color: ${props => props.theme.colors.state.all};
   --planned-state-color: ${props => props.theme.colors.state.planned};
   --doing-state-color: ${props => props.theme.colors.state.doing};
   --done-state-color: ${props => props.theme.colors.state.done};
