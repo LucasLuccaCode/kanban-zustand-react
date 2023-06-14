@@ -1,15 +1,29 @@
 import { create } from 'zustand'
 
-interface IDialogStore {
-  isOpen: boolean
-  toggleDialog(): void
+interface IStates {
+  taskFormIsOpen: boolean
+  userFormIsOpen: boolean
 }
 
-export const useDialogStore = create<IDialogStore>()((set) => ({
-  isOpen: false,
-  toggleDialog() {
-    set((store) => ({
-      isOpen: !store.isOpen,
-    }))
-  },
-}))
+interface IMutations {
+  toggleTaskFormIsOpen(): void
+  toggleUserFormIsOpen(): void
+}
+
+export const useDialogStore = create<IStates & IMutations>()(
+  (set) => ({
+    taskFormIsOpen: false,
+    userFormIsOpen: false,
+
+    toggleTaskFormIsOpen() {
+      set((store) => ({
+        taskFormIsOpen: !store.taskFormIsOpen,
+      }))
+    },
+    toggleUserFormIsOpen() {
+      set((store) => ({
+        userFormIsOpen: !store.userFormIsOpen,
+      }))
+    },
+  })
+)
