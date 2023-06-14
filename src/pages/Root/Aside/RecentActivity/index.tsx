@@ -1,4 +1,5 @@
 import React from 'react';
+import { shallow } from 'zustand/shallow';
 
 import { RecentActivityStyled } from './styles';
 
@@ -7,7 +8,10 @@ import { useActivitiesStore } from '../../../../store/useActivities';
 import { ActivityCard } from './ActivityCard';
 
 export const RecentActivity: React.FC = () => {
-  const activities = useActivitiesStore(store => store.activities)
+  const activities = useActivitiesStore(store =>
+    store.activities.sort((a, b) => b.id - a.id),
+    shallow
+  )
 
   const taskActionIcons = {
     'ADD': 'bi bi-plus',
