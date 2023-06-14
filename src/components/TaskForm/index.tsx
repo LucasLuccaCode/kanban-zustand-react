@@ -15,6 +15,7 @@ import {
 import { useTasksStore } from '../../store/useTasks'
 import { useDialogStore } from '../../store/useDialog'
 import { useActivitiesStore } from '../../store/useActivities'
+import { useUserStore } from '../../store/useUser'
 
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
@@ -26,9 +27,12 @@ export const TaskForm: React.FC = () => {
   const addTask = useTasksStore((store) => store.addTask)
   const toggleDialog = useDialogStore((store) => store.toggleDialog)
   const addActivity = useActivitiesStore((store) => store.addActivity)
+  const user = useUserStore((store) => store.user)
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (!title) return
 
     const task: ITask = {
       id: Date.now(),
@@ -50,7 +54,12 @@ export const TaskForm: React.FC = () => {
 
   return (
     <TaskFormStyled onSubmit={handleFormSubmit}>
-      <Avatar isAuthor={true} username={'John Doe'} sizeRem='2.2rem' />
+      <Avatar
+        isAuthor={true}
+        username={user.name}
+        avatarUrl={user.avatarUrl}
+        sizeRem='2.2rem'
+      />
 
       <Wrapper>
         <Select
@@ -73,7 +82,7 @@ export const TaskForm: React.FC = () => {
         />
         <Actions>
           <Status>{title.length} / 2000</Status>
-          <Button text='CRIAR' size='FULL' />
+          <Button disabled={!title} text='CRIAR' size='FULL' />
         </Actions>
       </Wrapper>
     </TaskFormStyled>

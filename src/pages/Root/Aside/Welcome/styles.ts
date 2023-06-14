@@ -15,14 +15,20 @@ export const Message = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  overflow: hidden;
 
   strong {
-    font-size: .8rem;
+    font-size: .7rem;
     color: rgba(var(--all-state-color), .7);
   }
 
   h2 {
+    width: 100%;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: 1.1rem;
     color: ${props => props.theme.colors.bg.details};
+    overflow: hidden;
   }
 `

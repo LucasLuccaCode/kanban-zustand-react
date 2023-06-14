@@ -3,23 +3,24 @@ import styled, { css } from 'styled-components';
 interface AvatarStyledProps {
   $avatarUrl?: string;
   $isAuthor?: boolean;
-  $sizeRem: string;
+  $circleSize: number;
+  $nameSize: number;
 }
 
 export const AvatarStyled = styled.div<AvatarStyledProps>`
-  ${({ theme, $avatarUrl, $isAuthor, $sizeRem }) => css`
+  ${({ theme, $avatarUrl, $isAuthor, $nameSize, $circleSize }) => css`
     display: grid;
     place-items: center;
-    height: ${$sizeRem};
-    width: ${$sizeRem};
-    min-height: ${$sizeRem};
-    min-width: ${$sizeRem};
+    height: ${$circleSize}rem;
+    width: ${$circleSize}rem;
+    min-height: ${$circleSize}rem;
+    min-width: ${$circleSize}rem;
     border-radius: 50%;
 
     ${$avatarUrl
       ? css`
           background-image: url(${$avatarUrl});
-          border: 2px solid ${theme.colors.text.title};
+          /* border: 2px solid ${theme.colors.text.title}; */
           background-size: cover;
           backdrop-position: center;
         `
@@ -30,9 +31,9 @@ export const AvatarStyled = styled.div<AvatarStyledProps>`
         `}
 
     span {
-      font-size: 100%;
+      font-size: ${$nameSize}rem;
       font-weight: bold;
-      color: ${theme.colors.text.title};
+      color: ${theme.colors.text.title} !important;
       text-transform: uppercase;
     }
   `}

@@ -15,6 +15,11 @@ export const ButtonCss = css`
     border: 2px solid transparent !important;
   }
 
+  &:disabled {
+    pointer-events: none;
+    opacity: .6;
+  }
+
   &:hover {
     background: transparent;
     border-color: rgba(87, 104, 239, .4) !important;

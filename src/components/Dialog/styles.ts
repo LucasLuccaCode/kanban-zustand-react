@@ -27,9 +27,9 @@ export const DialogContent = styled(Dialog.Content)`
 `
 
 export const DialogTitle = styled(Dialog.Title)`
-  font-size: 1rem;
-  font-weight: bold;
-  color: ${(props) => props.theme.colors.text.title};
+  font-size: .9rem;
+  font-weight: normal;
+  color: rgba(var(--done-state-color), 1);
 `
 
 export const Header = styled.div`

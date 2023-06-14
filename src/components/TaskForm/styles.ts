@@ -29,14 +29,11 @@ export const Select = styled.select`
 `
 
 export const TextArea = styled.textarea`
-  outline: none;
   border: none;
   resize: none;
   font-size: 0.8rem;
   color: ${(props) => props.theme.colors.text.title};
   margin: 0.5rem 0;
-  padding: 0 0.5rem;
-  border-radius: ${(props) => props.theme.borderRadius.medium};
   background: transparent;
 
   &::-webkit-scrollbar {

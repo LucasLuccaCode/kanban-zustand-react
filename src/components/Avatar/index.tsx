@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { AvatarStyled } from './styles'
+import { getNameInitials } from '../../utils/getNameInitials'
 
 interface IAvatarProps {
   avatarUrl?: string
@@ -15,9 +16,18 @@ export const Avatar: React.FC<IAvatarProps> = ({
   username,
   sizeRem,
 }) => {
+
+  const circleSize = Number(sizeRem.split('rem')[0])
+  const nameSize = Math.max(Number((circleSize - 1.4).toFixed(1)), 0.5)
+
   return (
-    <AvatarStyled $isAuthor={isAuthor} $avatarUrl={avatarUrl} $sizeRem={sizeRem}>
-      {!avatarUrl && <span>{username?.substring(0, 1)}</span>}
+    <AvatarStyled
+      $isAuthor={isAuthor}
+      $avatarUrl={avatarUrl}
+      $circleSize={circleSize}
+      $nameSize={nameSize}
+    >
+      {!avatarUrl && <span>{getNameInitials(username)}</span>}
     </AvatarStyled>
   )
 }

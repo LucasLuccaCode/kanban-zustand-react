@@ -28,7 +28,7 @@ export const Dialog: React.FC = () => {
         <DialogOverlay>
           <DialogContent>
             <Header>
-              <DialogTitle>Publique sua tarefa</DialogTitle>
+              <DialogTitle>Adicione uma tarefa</DialogTitle>
 
               <DialogClose asChild>
                 <IconButton className='bi bi-x' aria-label='Close' />
