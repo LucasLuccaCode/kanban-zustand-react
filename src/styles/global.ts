@@ -38,6 +38,7 @@ html,
   height: 100vh;
   font-size: 18px;
   background-color: ${props => props.theme.colors.bg.primary};
+  font-family: 'Poppins', sans-serif;
 }
 
 button {

@@ -19,8 +19,9 @@ export const Select = styled.select`
   width: max-content;
   outline: none;
   color: ${(props) => props.theme.colors.text.title};
-  border: 1px solid rgba(87, 104, 239, .2);
-  background: rgba(87, 104, 239, .8);
+  /* border: 1px solid rgba(87, 104, 239, .2); */
+  border: 0;
+  background: ${props => props.theme.colors.opaque};
 
   option {
     background: ${(props) => props.theme.colors.bg.secondary};

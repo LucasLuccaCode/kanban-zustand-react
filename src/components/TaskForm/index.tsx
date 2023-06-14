@@ -50,7 +50,7 @@ export const TaskForm: React.FC = () => {
 
   return (
     <TaskFormStyled onSubmit={handleFormSubmit}>
-      <Avatar isAuthor={true} username={'Lucca'} sizeRem='2.2rem' />
+      <Avatar isAuthor={true} username={'John Doe'} sizeRem='2.2rem' />
 
       <Wrapper>
         <Select

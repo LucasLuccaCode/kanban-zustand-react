@@ -38,13 +38,13 @@ export const Account = styled.div`
   gap: 0.5rem;
   border-radius: 100px;
   padding: 0.2rem .5rem;
-  background: rgba(87, 104, 239, .1);
+  /* background: rgba(87, 104, 239, .1); */
   border: 2px solid transparent;
   transition: all .3s ease;
   
   &:hover {
-    border: 2px solid rgba(87, 104, 239, .5);
-    background: transparent;
+    /* border: 2px solid rgba(87, 104, 239, .5); */
+    background: rgba(var(--all-state-color), .1);
   }
   
   i, strong {
@@ -52,7 +52,7 @@ export const Account = styled.div`
   }
 
   strong {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     /* color: ${(props) => props.theme.colors.text.title}; */
   }
 `
