@@ -9,28 +9,18 @@ interface IStates {
 
 interface IMutations {
   addActivity(activity: IActivity): void
+  resetActivities(): void
 }
 
 export const useActivitiesStore = create<IStates & IMutations>()(
   persist(
     (set, get) => ({
-      activities: [{
-        id: Date.now() + 1,
-        content: 'Adicionou uma tarefa',
-        action: 'ADD'
-      },
-      {
-        id: Date.now() + 2,
-        content: 'Fixou uma tarefa',
-        action: 'FIX'
-      },
-      {
-        id: Date.now() + 3,
-        content: 'Deletou uma tarefa',
-        action: 'DELETE'
-      }],
+      activities: [],
       addActivity(activity) {
         set({ activities: [...get().activities, activity] })
+      },
+      resetActivities() {
+        set({ activities: [] })
       },
     }), {
     name: 'mr-kanban-activity'
