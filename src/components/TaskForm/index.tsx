@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from 'react'
 
 import { ITask, StateTypes } from '../../types/task'
+import { IActivity } from '../../types/activity'
 
 import {
   Actions,
@@ -13,6 +14,7 @@ import {
 
 import { useTasksStore } from '../../store/useTasks'
 import { useDialogStore } from '../../store/useDialog'
+import { useActivitiesStore } from '../../store/useActivities'
 
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
@@ -23,6 +25,7 @@ export const TaskForm: React.FC = () => {
 
   const addTask = useTasksStore((store) => store.addTask)
   const toggleDialog = useDialogStore((store) => store.toggleDialog)
+  const addActivity = useActivitiesStore((store) => store.addActivity)
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -35,6 +38,14 @@ export const TaskForm: React.FC = () => {
 
     addTask(task)
     toggleDialog()
+
+    const activity: IActivity = {
+      id: Date.now(),
+      content: 'Adicionou uma tarefa',
+      action: 'ADD'
+    }
+
+    addActivity(activity)
   }
 
   return (

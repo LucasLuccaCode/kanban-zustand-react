@@ -41,15 +41,16 @@ export const Icon = styled.div`
   display: grid;
   transform: translateX(-50%);
   place-content: center;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 50px;
   border: 2px solid rgba(var(--done-state-color), .4);
   background: ${props => props.theme.colors.bg.secondary};
   z-index: 1;
 
   i {
-    font-size: .6rem;
+    font-size: .5rem;
+    margin-top: 1px;
     color: rgba(var(--done-state-color), .6);
   }
 `
@@ -62,12 +63,12 @@ export const Content = styled.div`
 
   p {
     font-weight: bold;
-    font-size: .8rem;
+    font-size: .7rem;
     color: rgba(var(--done-state-color), 1);
   }
 
   span {
-    font-size: .7rem;
+    font-size: .6rem;
     color: rgba(var(--done-state-color), .7);
   }
 `

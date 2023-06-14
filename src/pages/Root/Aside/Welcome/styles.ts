@@ -11,17 +11,18 @@ export const WelcomeStyled = styled.div`
 `
 
 export const Message = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
   strong {
     font-size: .8rem;
-    color: rgba(87, 104, 239, var(--title-opacity));
+    color: rgba(var(--all-state-color), .7);
   }
 
-  h3 {
-    font-size: 1rem;
-    color: ${props => props.theme.colors.bg.details}
+  h2 {
+    font-size: 1.1rem;
+    color: ${props => props.theme.colors.bg.details};
   }
 `

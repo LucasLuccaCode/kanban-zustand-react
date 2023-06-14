@@ -9,11 +9,11 @@ export const AsideStyled = styled.div`
   border-radius: ${props => props.theme.borderRadius.large};
   background: ${props => props.theme.colors.bg.secondary};
   overflow: hidden;
-
-  & > h3 {
-    font-size: .8rem;
-    font-weight: bold;
-    color: #aaaab0;
-  }
 `
 
+
+export const RecentActivityLabel = styled.h3`
+  font-size: .8rem;
+  font-weight: bold;
+  color: #aaaab0;
+`

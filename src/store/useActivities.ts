@@ -1,13 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { TaskAction } from '../types/task';
-
-interface IActivity {
-  id: number
-  content: string
-  action: TaskAction
-}
+import { IActivity } from '../types/activity';
 
 interface IStates {
   activities: IActivity[]

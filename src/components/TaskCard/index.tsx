@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'zustand/shallow';
 
-import { useTasksStore } from '../../store/useTasks';
-
 import {
   Actions,
   Button,
@@ -12,6 +10,10 @@ import {
 } from './styles';
 
 import { StateTypes } from '../../types/task';
+
+import { useTasksStore } from '../../store/useTasks';
+import { useActivitiesStore } from '../../store/useActivities';
+import { IActivity } from '../../types/activity';
 
 interface ITaskCardProps {
   id: number
@@ -30,6 +32,8 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
     shallow
   )
 
+  const addActivity = useActivitiesStore(store => store.addActivity)
+
   const convertTimestampToDate = (timestamp: number) => {
     const date = new Date(timestamp);
     const formattedDate = date.toLocaleDateString('pt-BR')
@@ -37,6 +41,30 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
   }
 
   const handleDragStart = () => setDraggedTask(id)
+
+  const handleTaskRemove = () => {
+    removeTask(id)
+
+    const activity: IActivity = {
+      id: Date.now(),
+      content: 'Deletou uma tarefa',
+      action: 'DELETE'
+    }
+
+    addActivity(activity)
+  }
+
+  const handleTaskFix = () => {
+    toggleFixedTask(id)
+
+    const activity: IActivity = {
+      id: Date.now(),
+      content: 'Fixou/Desfixou uma tarefa',
+      action: 'FIX'
+    }
+
+    addActivity(activity)
+  }
 
   const isFixedTask = fixedTasks.includes(id)
 
@@ -56,13 +84,13 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
             <i className='bi bi-pencil-square' />
           </Button>
 
-          <Button onClick={() => removeTask(id)}>
+          <Button onClick={handleTaskRemove}>
             <i className='bi bi-trash-fill' />
           </Button>
 
           <Button
             className={isFixedTask ? 'fixed' : ''}
-            onClick={() => toggleFixedTask(id)}
+            onClick={handleTaskFix}
           >
             <i className='bi bi-pin-fill' />
           </Button>
