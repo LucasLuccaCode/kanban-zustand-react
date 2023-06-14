@@ -1,5 +1,4 @@
-import React from 'react'
-import { shallow } from 'zustand/shallow'
+import React, { ReactNode } from 'react'
 
 import {
   DialogClose,
@@ -12,30 +11,28 @@ import {
   Header,
 } from './styles'
 
-import { useDialogStore } from '../../store/useDialog'
+interface IDialogProps {
+  children: ReactNode
+  title: string
+  isOpen: boolean
+  setIsOpen(): void
+}
 
-import { TaskForm } from '../TaskForm'
-
-export const Dialog: React.FC = () => {
-  const [isOpen, toggleDialog] = useDialogStore((store) =>
-    [store.isOpen, store.toggleDialog],
-    shallow
-  )
-
+export const Dialog: React.FC<IDialogProps> = ({ children, title, isOpen, setIsOpen }) => {
   return (
-    <DialogRoot open={isOpen} onOpenChange={toggleDialog}>
+    <DialogRoot open={isOpen} onOpenChange={setIsOpen}>
       <DialogPortal>
         <DialogOverlay>
           <DialogContent>
             <Header>
-              <DialogTitle>Adicione uma tarefa</DialogTitle>
+              <DialogTitle>{title}</DialogTitle>
 
               <DialogClose asChild>
                 <IconButton className='bi bi-x' aria-label='Close' />
               </DialogClose>
             </Header>
 
-            <TaskForm />
+            {children}
           </DialogContent>
         </DialogOverlay>
       </DialogPortal>

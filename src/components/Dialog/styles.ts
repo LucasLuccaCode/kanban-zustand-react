@@ -20,8 +20,8 @@ export const DialogContent = styled(Dialog.Content)`
   border-radius: ${(props) => props.theme.borderRadius.large};
   padding: 1rem;
   margin-top: -10vh;
-  max-width: 500px;
-  width: 100%;
+  max-width: 80%;
+  /* width: 100%; */
   background-color: ${(props) => props.theme.colors.bg.secondary};
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 `
