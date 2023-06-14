@@ -1,6 +1,6 @@
 # Kanban Zustand React
 
-Uma aplicação de kanban para gerenciar tarefas, usando o zustand para gerenciar / persistir os estados da aplicação.
+Uma aplicação de kanban para gerenciar tarefas, usando a lib zustand para gerenciar / persistir os estados da aplicação.
 
 ![Preview](https://github.com/LucasLuccaCode/kanban-zustand-react/blob/main/.github/preview.png)
 
