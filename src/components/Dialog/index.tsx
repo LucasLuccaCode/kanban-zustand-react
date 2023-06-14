@@ -18,7 +18,12 @@ interface IDialogProps {
   setIsOpen(): void
 }
 
-export const Dialog: React.FC<IDialogProps> = ({ children, title, isOpen, setIsOpen }) => {
+export const Dialog: React.FC<IDialogProps> = ({
+  children,
+  title,
+  isOpen,
+  setIsOpen
+}) => {
   return (
     <DialogRoot open={isOpen} onOpenChange={setIsOpen}>
       <DialogPortal>

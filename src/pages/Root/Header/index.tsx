@@ -1,16 +1,25 @@
 import React from 'react';
+import { shallow } from 'zustand/shallow';
 
 import { Account, HeaderStyled, ManageAccount, Menu } from './styles';
 
 import { useUserStore } from '../../../store/useUser';
+import { useDialogStore } from '../../../store/useDialog';
 
 import { SearchForm } from '../../../components/SearchForm';
 import { Notify } from '../../../components/Notify';
 import { Avatar } from '../../../components/Avatar';
+import { Dialog } from '../../../components/Dialog';
+import { UserForm } from '../../../components/UserForm';
 
 
 export const Header: React.FC = () => {
   const user = useUserStore(store => store.user)
+
+  const [userFormIsOpen, toggleUserFormIsOpen] = useDialogStore(store =>
+    [store.userFormIsOpen, store.toggleUserFormIsOpen],
+    shallow
+  )
 
   return (
     <HeaderStyled>
@@ -25,7 +34,7 @@ export const Header: React.FC = () => {
 
         <span>|</span>
 
-        <Account>
+        <Account onClick={toggleUserFormIsOpen}>
           <Avatar
             isAuthor={true}
             username={user.name}
@@ -34,6 +43,14 @@ export const Header: React.FC = () => {
           />
           <strong>{user.name}</strong>
         </Account>
+
+        <Dialog
+          title='Atualize os dados do perfil'
+          isOpen={userFormIsOpen}
+          setIsOpen={toggleUserFormIsOpen}
+        >
+          <UserForm />
+        </Dialog>
       </ManageAccount>
     </HeaderStyled>
   )

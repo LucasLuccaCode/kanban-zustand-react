@@ -32,7 +32,7 @@ export const RecentActivity: React.FC = () => {
     'ADD': 'bi bi-list',
     'FIX': 'bi bi-pin-fill',
     'DELETE': 'bi bi-trash-fill',
-    'UPDATE': 'bi bi-update'
+    'PROFILE': 'bi bi-person-circle'
   }
 
   return (

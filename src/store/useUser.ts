@@ -3,18 +3,27 @@ import { persist } from 'zustand/middleware';
 
 import { IUser } from '../types/user';
 
-interface IUserStore {
+interface IStore {
   user: IUser
 }
 
-export const useUserStore = create<IUserStore>()(
+interface IMutations {
+  updateUser({ name, avatarUrl }: Omit<IUser, 'id'>): void
+}
+
+export const useUserStore = create<IStore & IMutations>()(
   persist(
     ((set, get) => ({
       user: {
         id: 1,
         name: 'John Doe',
         avatarUrl: ''
-      }
+      },
+      updateUser({ name, avatarUrl }) {
+        set({
+          user: { ...get().user, name, avatarUrl }
+        })
+      },
     })), {
     name: 'mr-kanban-user'
   }

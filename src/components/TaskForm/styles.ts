@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const TaskFormStyled = styled.form`
   display: flex;
+  width: 40vw;
   gap: 0.8rem;
 `
 

@@ -68,8 +68,6 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
     addActivity(activity)
   }
 
-
-
   return (
     <TaskCardStyled
       className={isFixedTask ? 'fixed' : ''}
