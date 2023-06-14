@@ -8,6 +8,7 @@ export const useStateColor = (state: StateTypes) => {
     'PLANNED': theme?.colors.state.planned,
     'DOING': theme?.colors.state.doing,
     'DONE': theme?.colors.state.done,
+    'ALL': theme?.colors.state.all
   }
 
   const stateColor = states[state as keyof typeof states];
