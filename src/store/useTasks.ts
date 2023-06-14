@@ -21,11 +21,7 @@ interface IMutations {
 export const useTasksStore = create<IState & IMutations>()(
   persist(
     (set, get) => ({
-      tasks: [{
-        id: Date.now(),
-        title: 'Lorem ipsum dolor...',
-        state: 'PLANED'
-      }],
+      tasks: [],
       filter: '',
       fixedTasks: [],
       draggedTask: null,

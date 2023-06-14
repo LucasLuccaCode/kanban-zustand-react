@@ -8,13 +8,15 @@ import {
   ColumnStyled,
   DropZone,
   Title,
-  TitleWrapper
+  TitleWrapper,
 } from './styles';
 
 import { useTasksStore } from '../../store/useTasks';
 
-import { TaskCard } from '../TaskCard';
 import { useStateColor } from '../../hooks/useStateColor';
+import { transformStateToPortuguese } from '../../utils/transformStateToPortuguese';
+
+import { TaskCard } from '../TaskCard';
 
 interface IColumnProps {
   state: StateTypes;
@@ -54,12 +56,6 @@ export const Column: React.FC<IColumnProps> = ({ state }) => {
 
   const styleWithStateColor = { '--state-color': stateColor } as CSSProperties
 
-  const stateToPortuguese = {
-    'PLANNED': 'Planejadas',
-    'DOING': 'Fazendo',
-    'DONE': 'Concluídas'
-  }
-
   return (
     <ColumnStyled
       style={styleWithStateColor}
@@ -70,7 +66,7 @@ export const Column: React.FC<IColumnProps> = ({ state }) => {
       onDrop={handleDrop}
     >
       <TitleWrapper>
-        <Title>{stateToPortuguese[state]}</Title>
+        <Title>{transformStateToPortuguese(state)}</Title>
         <Amount>{tasks.length}</Amount>
       </TitleWrapper>
 
