@@ -25,7 +25,7 @@ export const TaskForm: React.FC = () => {
   const [state, setState] = useState<StateTypes>('PLANNED')
 
   const addTask = useTasksStore((store) => store.addTask)
-  const toggleDialog = useDialogStore((store) => store.toggleDialog)
+  const toggleTaskFormIsOpen = useDialogStore((store) => store.toggleTaskFormIsOpen)
   const addActivity = useActivitiesStore((store) => store.addActivity)
   const user = useUserStore((store) => store.user)
 
@@ -41,7 +41,7 @@ export const TaskForm: React.FC = () => {
     }
 
     addTask(task)
-    toggleDialog()
+    toggleTaskFormIsOpen()
 
     const activity: IActivity = {
       id: Date.now(),
