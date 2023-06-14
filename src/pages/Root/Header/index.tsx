@@ -11,6 +11,7 @@ import { Notify } from '../../../components/Notify';
 import { Avatar } from '../../../components/Avatar';
 import { Dialog } from '../../../components/Dialog';
 import { UserForm } from '../../../components/UserForm';
+import { Navbar } from '../../../components/Navbar';
 
 
 export const Header: React.FC = () => {
@@ -26,6 +27,8 @@ export const Header: React.FC = () => {
       <Menu>
         <i className='bi bi-list' />
       </Menu>
+
+      <Navbar />
 
       <SearchForm />
 

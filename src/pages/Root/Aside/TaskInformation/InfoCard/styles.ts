@@ -9,7 +9,7 @@ export const InfoCardStyled = styled.li`
   color: rgba(var(--state-color), var(--title-opacity));
   background: rgba(var(--state-color), var(--bg-opacity));
   box-shadow: 0 1px 2px 0px rgba(var(--state-color), var(--box-shadow-opacity));
-  
+
   p {
     text-align: center;
     font-size: .6rem;

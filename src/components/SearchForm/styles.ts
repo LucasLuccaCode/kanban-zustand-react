@@ -14,7 +14,7 @@ export const SearchFormStyled = styled(Form)`
   overflow: hidden;
 
   &:focus-within {
-    border-color: ${(props) => props.theme.colors.borderFocus};
+    border-color: rgba(var(--planned-state-color), .7);;
   }
 `
 
@@ -27,7 +27,7 @@ export const Input = styled.input`
   background: transparent;
 
   &::placeholder {
-    color: ${(props) => props.theme.colors.text.placeholder};
+    color: rgba(var(--planned-state-color), .7);
   }
 `
 
