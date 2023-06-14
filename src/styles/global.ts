@@ -2,17 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 :root {
-  --all-state-color: ${props => props.theme.colors.state.all};
   --planned-state-color: ${props => props.theme.colors.state.planned};
   --doing-state-color: ${props => props.theme.colors.state.doing};
   --done-state-color: ${props => props.theme.colors.state.done};
+  --all-state-color: ${props => props.theme.colors.state.all};
+  --delete-state-color: ${props => props.theme.colors.state.delete};
 
   --color-opacity: ${props => props.theme.opacity.color};
   --title-opacity: ${props => props.theme.opacity.title};
   --bg-opacity: ${props => props.theme.opacity.bg};
   --box-shadow-opacity: ${props => props.theme.opacity.boxShadow};
   
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
 
   color: rgba(255, 255, 255, 0.87);

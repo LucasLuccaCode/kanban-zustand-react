@@ -22,9 +22,9 @@ export const dark = {
   colors: {
 
     state: {
-      planned: '236, 241, 244',
-      doing: '75, 237, 158',
-      done: '75, 77, 237',
+      planned: '246, 251, 254',
+      doing: '75, 255, 178',
+      done: '0, 255, 255',
       all: '87, 104, 239',
       delete: '237, 75, 158'
     },

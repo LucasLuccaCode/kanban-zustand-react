@@ -29,7 +29,7 @@ export const DialogContent = styled(Dialog.Content)`
 export const DialogTitle = styled(Dialog.Title)`
   font-size: .9rem;
   font-weight: normal;
-  color: rgba(var(--done-state-color), 1);
+  color: rgba(var(--planned-state-color), 1);
 `
 
 export const Header = styled.div`
