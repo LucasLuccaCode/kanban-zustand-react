@@ -19,7 +19,7 @@ export const AvatarStyled = styled.div<AvatarStyledProps>`
     ${$avatarUrl
       ? css`
           background-image: url(${$avatarUrl});
-          border: 3px solid ${theme.colors.text.title};
+          border: 2px solid ${theme.colors.text.title};
           background-size: cover;
           backdrop-position: center;
         `

@@ -54,7 +54,9 @@ export const Column: React.FC<IColumnProps> = ({ state }) => {
 
   const stateColor = useStateColor(state)
 
-  const styleWithStateColor = { '--state-color': stateColor } as CSSProperties
+  const styleWithStateColor = {
+    '--state-color': stateColor
+  } as CSSProperties
 
   return (
     <ColumnStyled

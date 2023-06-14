@@ -12,11 +12,12 @@ interface InfoCardProps {
   stateCount: number
 }
 
-
 export const InfoCard: React.FC<InfoCardProps> = ({ state, stateCount }) => {
   const stateColor = useStateColor(state)
 
-  const styleWithStateColor = { '--state-color': stateColor } as CSSProperties
+  const styleWithStateColor = {
+    '--state-color': stateColor
+  } as CSSProperties
 
   return (
     <InfoCardStyled style={styleWithStateColor}>

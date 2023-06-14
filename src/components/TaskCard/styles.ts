@@ -11,6 +11,7 @@ export const TaskCardStyled = styled.li`
   }
 
   h3 {
+    word-wrap: break-word;
     font-size: .9rem;
     color: rgba(var(--state-color), var(--title-opacity));
   }

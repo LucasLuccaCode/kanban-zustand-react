@@ -7,7 +7,7 @@ export const RootStyled = styled.div`
   transform: translate(-50%, -50%);
   
   display: grid;
-  grid-template-columns: 1fr max-content;
+  grid-template-columns: 1fr minmax(0, 24%);
   grid-template-rows: max-content 1fr;
   grid-template-areas:
     'header header'

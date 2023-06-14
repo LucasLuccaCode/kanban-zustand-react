@@ -11,7 +11,7 @@ export const Welcome: React.FC = () => {
         <strong>Bem vindo</strong>
         <h2>John Doe</h2>
       </Message>
-      <Avatar isAuthor={true} username='John Doe' sizeRem='2.4rem' />
+      <Avatar isAuthor={true} username='John Doe' sizeRem='2.3rem' />
     </WelcomeStyled>
   )
 }

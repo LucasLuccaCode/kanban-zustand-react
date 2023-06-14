@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AsideStyled, RecentActivityLabel } from './styles';
+import { AsideStyled } from './styles';
 
 import { Welcome } from './Welcome';
 import { TaskInformation } from './TaskInformation';
@@ -12,8 +12,6 @@ export const Aside: React.FC = () => {
       <Welcome />
 
       <TaskInformation />
-
-      <RecentActivityLabel>Atividades recentes</RecentActivityLabel>
 
       <RecentActivity />
     </AsideStyled>

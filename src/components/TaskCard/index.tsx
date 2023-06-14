@@ -40,6 +40,8 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
     return formattedDate
   }
 
+  const isFixedTask = fixedTasks.includes(id)
+
   const handleDragStart = () => setDraggedTask(id)
 
   const handleTaskRemove = () => {
@@ -59,14 +61,14 @@ export const TaskCard: React.FC<ITaskCardProps> = ({ id, title }) => {
 
     const activity: IActivity = {
       id: Date.now(),
-      content: 'Fixou/Desfixou uma tarefa',
+      content: `${isFixedTask ? 'Desfixou' : 'Fixou'} uma tarefa`,
       action: 'FIX'
     }
 
     addActivity(activity)
   }
 
-  const isFixedTask = fixedTasks.includes(id)
+
 
   return (
     <TaskCardStyled
