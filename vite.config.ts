@@ -20,6 +20,11 @@ export default defineConfig({
             'src': 'icons/logo.png',
             'sizes': '32x32',
             'type': 'image/png'
+          },
+          {
+            'src': 'icons/logo-144.png',
+            'sizes': '144x144',
+            'type': 'image/png'
           }
         ]
       }
