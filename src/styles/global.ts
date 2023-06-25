@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
   outline: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body,
@@ -38,7 +39,6 @@ html,
   height: 100vh;
   font-size: 18px;
   background-color: ${props => props.theme.colors.bg.primary};
-  font-family: 'Poppins', sans-serif;
 }
 
 button {
